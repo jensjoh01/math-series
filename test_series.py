@@ -1,38 +1,15 @@
 """This is the test file for module series.py."""
 import pytest
 
+# (n, result)
+n_values = [
+    (0, 0), (1, 1), (2, 1), (3, 2), (4, 3), (5, 5), (6, 8), (13, 233),
+    (20, 6765), (30, 832040)
+]
 
-def test_fib_0():
-    """Test for fib."""
+
+@pytest.mark.parametrize('n, result', n_values)
+def test_fib(n, result):
+    """Test for fib using n_values list."""
     from series import fib
-    assert fib(0) == 0
-
-
-def test_fib_1():
-    """Test for fib."""
-    from series import fib
-    assert fib(1) == 1
-
-
-def test_fib_2():
-    """Test for fib."""
-    from series import fib
-    assert fib(2) == 1
-
-
-def test_fib_3():
-    """Test for fib."""
-    from series import fib
-    assert fib(3) == 2
-
-
-def test_fib_4():
-    """Test for fib."""
-    from series import fib
-    assert fib(4) == 3
-
-
-def test_fib_5():
-    """Test for fib."""
-    from series import fib
-    assert fib(5) == 5
+    assert fib(n) == result
