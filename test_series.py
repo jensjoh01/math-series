@@ -26,3 +26,17 @@ def test_lucas(n, result):
     """Test for lucas series using n_values list."""
     from series import lucas
     assert lucas(n) == result
+
+
+@pytest.mark.parametrize('n, result', fib_n_values)
+def test_sum_series(n, result):
+    """Test for sum_series default using n_values list."""
+    from series import sum_series
+    assert sum_series(n) == result
+
+
+@pytest.mark.parametrize('n, result', lucas_n_values)
+def test_sum_series_lucas(n, result):
+    """Test for sum_series lucas using n_values list."""
+    from series import sum_series
+    assert sum_series(n, 2, 1) == result
