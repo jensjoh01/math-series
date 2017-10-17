@@ -14,6 +14,14 @@ lucas_n_values = [
 ]
 
 
+# sum_series_values (n, a, b, result)
+sum_series_values = [
+    (0, 2, 3, 2), (1, 7, 2, 2), (5, 14, 5, 67), (4, 8, 2, 22), (2, 11, 2, 13),
+    (2, 14, 5, 19), (2, 7, 6, 13), (6, 10, 15, 170), (7, 7, 4, 108), 
+    (5, 1, 13, 68)
+]
+
+
 @pytest.mark.parametrize('n, result', fib_n_values)
 def test_fib(n, result):
     """Test for fib using n_values list."""
@@ -40,3 +48,10 @@ def test_sum_series_lucas(n, result):
     """Test for sum_series lucas using n_values list."""
     from series import sum_series
     assert sum_series(n, 2, 1) == result
+
+
+@pytest.mark.parametrize('n, a, b, result', sum_series_values)
+def test_sum_series_random(n, a, b, result):
+    """Test for sum_series for random series."""
+    from series import sum_series
+    assert sum_series(n, a, b) == result
